@@ -1,14 +1,15 @@
 /*
  * This is a microservice e-commerce store sample with Gateway and ten microservice applications
- * This uses JHipster registry for service discovery and JWT authentication
+ * It uses native kubernetes service discovery and JWT authentication
+ * Generated code will also contains the required Kubernetes deployment manifests
  */
- 
+
 application {
   config {
     baseName store,
     applicationType gateway,
     packageName com.jhipster.demo.store,
-    serviceDiscoveryType eureka,
+    serviceDiscoveryType no,
     authenticationType jwt,
     prodDatabaseType mysql,
     cacheProvider hazelcast,
@@ -25,7 +26,7 @@ application {
     baseName product,
     applicationType microservice,
     packageName com.jhipster.demo.product,
-    serviceDiscoveryType eureka,
+    serviceDiscoveryType no,
     authenticationType jwt,
     prodDatabaseType mysql,
     cacheProvider hazelcast,
@@ -41,7 +42,7 @@ application {
     baseName invoice,
     applicationType microservice,
     packageName com.jhipster.demo.invoice,
-    serviceDiscoveryType eureka,
+    serviceDiscoveryType no,
     authenticationType jwt,
     prodDatabaseType mysql,
     buildTool gradle,
@@ -56,7 +57,7 @@ application {
     baseName notification,
     applicationType microservice,
     packageName com.jhipster.demo.notification,
-    serviceDiscoveryType eureka,
+    serviceDiscoveryType no,
     authenticationType jwt,
     databaseType mongodb,
     prodDatabaseType mongodb,
@@ -75,7 +76,7 @@ application {
     baseName reports,
     applicationType microservice,
     packageName com.jhipster.demo.report,
-    serviceDiscoveryType eureka,
+    serviceDiscoveryType no,
     authenticationType jwt,
     prodDatabaseType mysql,
     buildTool gradle,
@@ -84,12 +85,13 @@ application {
   }
   entities Report
 }
+
 application {
   config {
     baseName recommendation,
     applicationType microservice,
     packageName com.jhipster.demo.recommendation,
-    serviceDiscoveryType eureka,
+    serviceDiscoveryType no,
     authenticationType jwt,
     buildTool gradle,
     serverPort 8085,
@@ -104,7 +106,7 @@ application {
     baseName retailStores,
     applicationType microservice,
     packageName com.jhipster.demo.retailstore,
-    serviceDiscoveryType eureka,
+    serviceDiscoveryType no,
     authenticationType jwt,
     prodDatabaseType postgresql,
     buildTool gradle,
@@ -120,7 +122,7 @@ application {
     baseName promotions,
     applicationType microservice,
     packageName com.jhipster.demo.promotion,
-    serviceDiscoveryType eureka,
+    serviceDiscoveryType no,
     authenticationType jwt,
     prodDatabaseType postgresql,
     buildTool gradle,
@@ -129,12 +131,13 @@ application {
   }
   entities Promotion
 }
+
 application {
   config {
     baseName search,
     applicationType microservice,
     packageName com.jhipster.demo.search,
-    serviceDiscoveryType eureka,
+    serviceDiscoveryType no,
     authenticationType jwt,
     buildTool gradle,
     serverPort 8088,
@@ -142,12 +145,13 @@ application {
   }
   entities SearchHistory
 }
+
 application {
   config {
     baseName ads,
     applicationType microservice,
     packageName com.jhipster.demo.ads,
-    serviceDiscoveryType eureka,
+    serviceDiscoveryType no,
     authenticationType jwt,
     buildTool gradle,
     serverPort 8089,
@@ -155,6 +159,7 @@ application {
   }
     entities AdShown
 }
+
 /* Entities for Store Gateway */
 
 entity Customer {
