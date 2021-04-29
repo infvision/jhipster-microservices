@@ -12,7 +12,7 @@ application {
     serviceDiscoveryType no,
     authenticationType jwt,
     prodDatabaseType mysql,
-    cacheProvider hazelcast,
+    cacheProvider no,
     buildTool gradle,
     clientFramework react,
     useSass true,
@@ -190,7 +190,7 @@ entity Product {
     name String required
     description String
     price BigDecimal required min(0)
-    size Size required
+    productSize Size required
     image ImageBlob
 }
 
