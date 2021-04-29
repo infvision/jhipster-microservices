@@ -12,10 +12,9 @@ application {
     serviceDiscoveryType no,
     authenticationType jwt,
     prodDatabaseType mysql,
-    cacheProvider no,
+    cacheProvider hazelcast,
     buildTool gradle,
     clientFramework react,
-    useSass true,
     testFrameworks [protractor]
   }
   entities *
@@ -103,9 +102,9 @@ application {
 
 application {
   config {
-    baseName retailStores,
+    baseName retailers,
     applicationType microservice,
-    packageName com.jhipster.demo.retailstore,
+    packageName com.jhipster.demo.retailers,
     serviceDiscoveryType no,
     authenticationType jwt,
     prodDatabaseType postgresql,
@@ -113,7 +112,7 @@ application {
     serverPort 8086,
     skipUserManagement true
   }
-  entities RetailStore, Worker, RetailStoreProduct
+  entities Retailer, Worker, RetailerProduct
 
 }
 
@@ -305,7 +304,7 @@ entity Recommendation {
 service Recommendation with serviceClass
 microservice Recommendation with recommendation
 
-entity RetailStore {
+entity Retailer {
 	name String required
 	city String required
 }
@@ -315,22 +314,22 @@ entity Worker {
 	position String required
 }
 
-entity RetailStoreProduct{
+entity RetailerProduct{
 	productId Long required,
     productCount Long required,
 }
 
 relationship OneToMany {
-    RetailStore{workers} to Worker{store}
+    Retailer{workers} to Worker{store}
 }
 relationship OneToMany {
-    RetailStore{stock} to RetailStoreProduct{store}
+    Retailer{stock} to RetailerProduct{store}
 }
-service RetailStore with serviceClass
+service Retailer with serviceClass
 service Worker with serviceClass
-service RetailStoreProduct with serviceClass
+service RetailerProduct with serviceClass
 
-microservice RetailStore, Worker, RetailStoreProduct with retailStores
+microservice Retailer, Worker, RetailerProduct with retailers
 
 entity Promotion{
 	code String required,
